@@ -6,18 +6,22 @@ extends Node2D
 
 var walking_right = true
 var walking_left = false
+var eating = false
+var rng = RandomNumberGenerator.new()
+var timer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	walking_right = bool(rng.randi_range(0,1))
+	walking_left = !walking_right
+	timer = get_node("Timer")
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	#if Input.is_action_pressed("ui_right") and !block_right:
-	if(walking_right):
+	if(walking_right and !eating):
 		self.set_position(Vector2(get_position().x+walk_speed,get_position().y))
-	elif(!walking_right):
+	elif(!walking_right and !eating):
 		self.set_position(Vector2(get_position().x-walk_speed,get_position().y))
 
 func _on_body_entered(body):
@@ -28,9 +32,17 @@ func _on_body_entered(body):
 		body.hide()
 		body.queue_free()
 		get_tree().root.get_child(0).update_score(feed_score)
+		eating=true
+		timer.start(2)
 	elif(body.name == "RightWall"):
 		walking_right=false
 		walking_left = true
 	elif(body.name == "LeftWall"):
 		walking_right=true
 		walking_left = false
+
+
+func _on_timer_timeout():
+	print("eating time over")
+	eating=false
+

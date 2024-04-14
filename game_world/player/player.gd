@@ -22,7 +22,7 @@ func _process(delta):
 		food.position = position
 		get_tree().root.get_child(0).add_child(food)
 		food_drop_time=false
-
+	
 
 func _on_body_entered(body):
 	if(body.name == "LeftWall"):
