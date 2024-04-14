@@ -56,23 +56,77 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -20.0
-offset_top = -20.0
-offset_right = 20.0
-offset_bottom = 20.0
+offset_right = 1920.0
+offset_bottom = 1080.0
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Control"]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -216.0
+grow_horizontal = 0
+grow_vertical = 2
 
-[node name="CheckButton" type="CheckButton" parent="Control/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
 layout_mode = 2
 
-[node name="CheckButton2" type="CheckButton" parent="Control/HBoxContainer"]
+[node name="Time" type="HBoxContainer" parent="Control/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="CheckButton3" type="CheckButton" parent="Control/HBoxContainer"]
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer/Time"]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "Time: "
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Time"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "60 sec"
+
+[node name="Food" type="HBoxContainer" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer/Food"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "Next Food: "
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Food"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "A or B ???"
+
+[node name="Time2" type="HBoxContainer" parent="Control/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer/Time2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "Score: "
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Time2"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 36
+text = "1231 Points"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(960, 540)

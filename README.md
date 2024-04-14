@@ -7,6 +7,7 @@ game made for https://ldjam.com/events/ludum-dare/55
 
 ## Milestones
 - [ ] ultra mvp game loop
+	- [ ] 
 - [ ] create very basic art 
 - [ ] animate it and particle effects
 - [ ] add sfx and music
@@ -14,7 +15,7 @@ game made for https://ldjam.com/events/ludum-dare/55
 - [ ] submit before 00:00
 
 
-## Ideas
+## Ideas/Misc/Notes
 - Maneki-neko/Lucky cat as food spawner
 - 
 

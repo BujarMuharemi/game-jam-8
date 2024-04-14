@@ -15,7 +15,7 @@ func _process(delta):
 	elif Input.is_action_pressed("ui_left") and !block_left:
 		self.set_position(Vector2(get_position().x-SPEED,get_position().y))
 		
-	elif Input.is_action_pressed("ui_select") and food_drop_time:	
+	elif Input.is_action_just_pressed("ui_select") and food_drop_time:	
 		set_scale(Vector2(1.0,1.0))		
 		var food = food_scene.instantiate()
 		food.position = position
