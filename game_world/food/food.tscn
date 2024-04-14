@@ -5,8 +5,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aukfb"]
 size = Vector2(1020, 1020)
 
-[node name="Food" type="RigidBody2D"]
-mass = 2.0
+[node name="Food" type="RigidBody2D" groups=["food"]]
+mass = 50.0
+gravity_scale = 2.0
 
 [node name="Blanko" type="Sprite2D" parent="."]
 modulate = Color(1, 0.376471, 0.32549, 1)

@@ -136,8 +136,17 @@ position = Vector2(960, 540)
 
 [node name="Sumo" parent="." instance=ExtResource("3_jddoh")]
 position = Vector2(434, 957)
+walk_speed = 10
 
 [node name="RoundTimer" type="Timer" parent="."]
 autostart = true
+
+[node name="Sumo2" parent="." instance=ExtResource("3_jddoh")]
+position = Vector2(841, 957)
+walk_speed = 10
+
+[node name="Sumo3" parent="." instance=ExtResource("3_jddoh")]
+position = Vector2(208, 957)
+walk_speed = 10
 
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]

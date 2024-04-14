@@ -7,7 +7,7 @@ game made for https://ldjam.com/events/ludum-dare/55
 
 ## Milestones
 - [ ] ultra minimal mvp game loop
-	- [ ] add sumo, which runs from left and right
+	- [X] add sumo, which runs from left and right
 		- [X] make them eat the food; adjust score
 	- [X] make time run out and show score 
 	- [ ] ? add a "angry emporor" bar, which is the game over task
