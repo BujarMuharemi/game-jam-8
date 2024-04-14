@@ -15,7 +15,7 @@ game made for https://ldjam.com/events/ludum-dare/55
 - [ ] create very basic art 2h ?
 	- [ ] search for some inspo (time:15min)
 	- [ ] background
-	- [ ] "player" 12min/
+	- [ ] "player" 12min/....too long. Art skills are too fucking low
 	- [ ] one food
 	- [ ] 1 sumo/ base with litte derivation
 	- [ ] particle effects
