@@ -1,0 +1,78 @@
+[gd_scene load_steps=4 format=3 uid="uid://75ba58pbuguj"]
+
+[ext_resource type="PackedScene" uid="uid://ccdblvlvp4kxe" path="res://game_world/player/player.tscn" id="1_dnv8g"]
+[ext_resource type="Texture2D" uid="uid://bia418x5tjgv" path="res://game_world/player/blanko.png" id="2_fa3jh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l8bih"]
+size = Vector2(511, 1193)
+
+[node name="MainScene" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_dnv8g")]
+modulate = Color(0.701961, 1, 0, 1)
+position = Vector2(832, 78)
+
+[node name="LeftWall" type="StaticBody2D" parent="."]
+position = Vector2(-493, 525)
+scale = Vector2(1, 1.39)
+
+[node name="Blanko" type="Sprite2D" parent="LeftWall"]
+texture = ExtResource("2_fa3jh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="LeftWall"]
+position = Vector2(280, 92)
+shape = SubResource("RectangleShape2D_l8bih")
+
+[node name="RightWall" type="StaticBody2D" parent="."]
+position = Vector2(1929, 465)
+scale = Vector2(1, 1.39)
+
+[node name="Blanko" type="Sprite2D" parent="RightWall"]
+modulate = Color(0.819608, 0.960784, 0.905882, 1)
+texture = ExtResource("2_fa3jh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RightWall"]
+position = Vector2(-282, 92)
+shape = SubResource("RectangleShape2D_l8bih")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+position = Vector2(987, 1445)
+scale = Vector2(2.52, 0.789998)
+
+[node name="Blanko" type="Sprite2D" parent="Floor"]
+modulate = Color(0.352941, 0.537255, 0.0901961, 1)
+texture = ExtResource("2_fa3jh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(-9.92062, -94.937)
+scale = Vector2(2.15777, 0.668334)
+shape = SubResource("RectangleShape2D_l8bih")
+
+[node name="Control" type="Control" parent="."]
+layout_direction = 1
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CheckButton" type="CheckButton" parent="Control/HBoxContainer"]
+layout_mode = 2
+
+[node name="CheckButton2" type="CheckButton" parent="Control/HBoxContainer"]
+layout_mode = 2
+
+[node name="CheckButton3" type="CheckButton" parent="Control/HBoxContainer"]
+layout_mode = 2

@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://dkf0hvkofym1g"]
+
+[ext_resource type="Texture2D" uid="uid://bia418x5tjgv" path="res://game_world/player/blanko.png" id="1_5gs5s"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aukfb"]
+size = Vector2(1020, 1020)
+
+[node name="Food" type="RigidBody2D"]
+mass = 2.0
+
+[node name="Blanko" type="Sprite2D" parent="."]
+modulate = Color(1, 0.376471, 0.32549, 1)
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("1_5gs5s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2.86102e-05, 0)
+scale = Vector2(0.05, 0.05)
+shape = SubResource("RectangleShape2D_aukfb")
