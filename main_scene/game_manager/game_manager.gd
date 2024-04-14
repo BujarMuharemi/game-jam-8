@@ -6,6 +6,7 @@ var start_scene
 var options_scene
 var pause_scene
 
+var score=0
 ## TODO: create independent btns which can be resued in all scenes !
 
 func _ready():

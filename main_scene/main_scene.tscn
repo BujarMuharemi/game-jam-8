@@ -1,12 +1,15 @@
-[gd_scene load_steps=4 format=3 uid="uid://75ba58pbuguj"]
+[gd_scene load_steps=6 format=3 uid="uid://75ba58pbuguj"]
 
+[ext_resource type="Script" path="res://main_scene/main_scene.gd" id="1_6w07c"]
 [ext_resource type="PackedScene" uid="uid://ccdblvlvp4kxe" path="res://game_world/player/player.tscn" id="1_dnv8g"]
 [ext_resource type="Texture2D" uid="uid://bia418x5tjgv" path="res://game_world/player/blanko.png" id="2_fa3jh"]
+[ext_resource type="PackedScene" uid="uid://c5d70o5dhak6y" path="res://game_world/sumo/sumo.tscn" id="3_jddoh"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8bih"]
 size = Vector2(511, 1193)
 
 [node name="MainScene" type="Node2D"]
+script = ExtResource("1_6w07c")
 
 [node name="player" parent="." instance=ExtResource("1_dnv8g")]
 modulate = Color(0.701961, 1, 0, 1)
@@ -48,7 +51,7 @@ position = Vector2(-9.92062, -94.937)
 scale = Vector2(2.15777, 0.668334)
 shape = SubResource("RectangleShape2D_l8bih")
 
-[node name="Control" type="Control" parent="."]
+[node name="Hud" type="Control" parent="."]
 layout_direction = 1
 layout_mode = 3
 anchors_preset = 8
@@ -64,7 +67,7 @@ size_flags_horizontal = 4
 size_flags_vertical = 4
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Hud"]
 layout_mode = 1
 anchors_preset = 11
 anchor_left = 1.0
@@ -74,54 +77,54 @@ offset_left = -216.0
 grow_horizontal = 0
 grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="Hud/HBoxContainer"]
 layout_mode = 2
 
-[node name="Time" type="HBoxContainer" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Time" type="HBoxContainer" parent="Hud/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer/Time"]
+[node name="Label3" type="Label" parent="Hud/HBoxContainer/VBoxContainer/Time"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 36
 text = "Time: "
 
-[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Time"]
+[node name="TimerSeconds" type="Label" parent="Hud/HBoxContainer/VBoxContainer/Time"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 36
-text = "60 sec"
+text = "60"
 
-[node name="Food" type="HBoxContainer" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="Food" type="HBoxContainer" parent="Hud/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer/Food"]
+[node name="Label3" type="Label" parent="Hud/HBoxContainer/VBoxContainer/Food"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 36
 text = "Next Food: "
 
-[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Food"]
+[node name="Label4" type="Label" parent="Hud/HBoxContainer/VBoxContainer/Food"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 36
 text = "A or B ???"
 
-[node name="Time2" type="HBoxContainer" parent="Control/HBoxContainer/VBoxContainer"]
+[node name="ScoreHBox" type="HBoxContainer" parent="Hud/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Label3" type="Label" parent="Control/HBoxContainer/VBoxContainer/Time2"]
+[node name="Label3" type="Label" parent="Hud/HBoxContainer/VBoxContainer/ScoreHBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 36
 text = "Score: "
 
-[node name="Label4" type="Label" parent="Control/HBoxContainer/VBoxContainer/Time2"]
+[node name="ScoreText" type="Label" parent="Hud/HBoxContainer/VBoxContainer/ScoreHBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
@@ -130,3 +133,11 @@ text = "1231 Points"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
+
+[node name="Sumo" parent="." instance=ExtResource("3_jddoh")]
+position = Vector2(434, 957)
+
+[node name="RoundTimer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]

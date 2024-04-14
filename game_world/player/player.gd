@@ -1,7 +1,7 @@
 extends Area2D
 
 # Define the speed of movement
-const SPEED = 30
+const SPEED = 20
 var block_left=false
 var block_right=false
 var food_scene = preload("res://game_world/food/food.tscn")
@@ -14,8 +14,9 @@ func _process(delta):
 
 	elif Input.is_action_pressed("ui_left") and !block_left:
 		self.set_position(Vector2(get_position().x-SPEED,get_position().y))
-		
-	elif Input.is_action_just_pressed("ui_select") and food_drop_time:	
+	
+	## is_action_just_pressed
+	elif Input.is_action_pressed("ui_select") and food_drop_time:	
 		set_scale(Vector2(1.0,1.0))		
 		var food = food_scene.instantiate()
 		food.position = position
@@ -37,7 +38,6 @@ func _on_body_exited(body):
 
 
 func _on_timer_timeout():
-	print("timer")
 	food_drop_time=true
 	set_scale(Vector2(1.2,1.2)) # to tell the player he can spawn stuff
 	
