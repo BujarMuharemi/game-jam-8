@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://75ba58pbuguj"]
+[gd_scene load_steps=8 format=3 uid="uid://75ba58pbuguj"]
 
 [ext_resource type="Script" path="res://main_scene/main_scene.gd" id="1_6w07c"]
 [ext_resource type="PackedScene" uid="uid://ccdblvlvp4kxe" path="res://game_world/player/player.tscn" id="1_dnv8g"]
 [ext_resource type="Texture2D" uid="uid://bia418x5tjgv" path="res://game_world/player/blanko.png" id="2_fa3jh"]
 [ext_resource type="PackedScene" uid="uid://c5d70o5dhak6y" path="res://game_world/sumo/sumo.tscn" id="3_jddoh"]
 [ext_resource type="Texture2D" uid="uid://c5e8b2lffph27" path="res://game_world/background.jpg" id="5_3p672"]
+[ext_resource type="PackedScene" uid="uid://debwcifwmjj5k" path="res://game_world/sumo/eating_ps.tscn" id="6_rs71x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8bih"]
 size = Vector2(511, 1193)
@@ -18,10 +19,10 @@ scale = Vector2(1.9945, 2.45034)
 texture = ExtResource("5_3p672")
 
 [node name="player" parent="." instance=ExtResource("1_dnv8g")]
-position = Vector2(832, 77.845)
+position = Vector2(934, 129)
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
-position = Vector2(-527, 525)
+position = Vector2(-533, 525)
 scale = Vector2(1, 1.39)
 
 [node name="Blanko" type="Sprite2D" parent="LeftWall"]
@@ -32,7 +33,7 @@ position = Vector2(280, 92)
 shape = SubResource("RectangleShape2D_l8bih")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
-position = Vector2(2085, 696)
+position = Vector2(2449, 692)
 scale = Vector2(1, 1.39)
 
 [node name="Blanko" type="Sprite2D" parent="RightWall"]
@@ -71,19 +72,18 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-metadata/_edit_use_anchors_ = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Hud"]
 layout_mode = 1
-anchors_preset = 11
-anchor_left = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -216.0
-grow_horizontal = 0
-grow_vertical = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -238.0
+offset_right = 238.0
+offset_bottom = 53.0
+grow_horizontal = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Hud/HBoxContainer"]
+[node name="VBoxContainer" type="HBoxContainer" parent="Hud/HBoxContainer"]
 layout_mode = 2
 
 [node name="Time" type="HBoxContainer" parent="Hud/HBoxContainer/VBoxContainer"]
@@ -93,17 +93,20 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 36
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 42
 text = "Time: "
 
 [node name="TimerSeconds" type="Label" parent="Hud/HBoxContainer/VBoxContainer/Time"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 36
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 42
 text = "60"
 
 [node name="Food" type="HBoxContainer" parent="Hud/HBoxContainer/VBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label3" type="Label" parent="Hud/HBoxContainer/VBoxContainer/Food"]
@@ -120,6 +123,10 @@ theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_font_sizes/font_size = 36
 text = "A or B ???"
 
+[node name="MarginContainer" type="MarginContainer" parent="Hud/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_right = 210
+
 [node name="ScoreHBox" type="HBoxContainer" parent="Hud/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 
@@ -127,31 +134,36 @@ layout_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 36
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 42
 text = "Score: "
 
 [node name="ScoreText" type="Label" parent="Hud/HBoxContainer/VBoxContainer/ScoreHBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
-theme_override_font_sizes/font_size = 36
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 42
 text = "1231 Points"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
 
-[node name="Sumo" parent="." instance=ExtResource("3_jddoh")]
-position = Vector2(434, 957)
-
 [node name="RoundTimer" type="Timer" parent="."]
 autostart = true
 
-[node name="Sumo2" parent="." instance=ExtResource("3_jddoh")]
-modulate = Color(0.588235, 0.607843, 0.913725, 1)
-position = Vector2(841, 962)
-
 [node name="Sumo3" parent="." instance=ExtResource("3_jddoh")]
 modulate = Color(1, 0.32549, 0.25098, 1)
-position = Vector2(208, 977)
+position = Vector2(211, 846)
+
+[node name="Sumo" parent="." instance=ExtResource("3_jddoh")]
+position = Vector2(434, 949)
+
+[node name="Sumo2" parent="." instance=ExtResource("3_jddoh")]
+modulate = Color(0.588235, 0.607843, 0.913725, 1)
+position = Vector2(840, 987)
+
+[node name="Node2D" parent="." instance=ExtResource("6_rs71x")]
+position = Vector2(627, 863)
 
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]

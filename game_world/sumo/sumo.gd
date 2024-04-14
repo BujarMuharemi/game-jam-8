@@ -11,13 +11,19 @@ var walking_left = false
 var eating = false
 var rng = RandomNumberGenerator.new()
 var timer
+var animation_player
+var eating_ps
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rnd_walk_dir()
 	walk_speed = walk_speed * rng.randf_range(1.0,1.2)
 	timer = get_node("Timer")
-
+	animation_player = $AnimationPlayer
+	animation_player.play("walking")
+	
+	eating_ps = $EatingPS
+	
 func rnd_walk_dir():
 	walking_right = bool(rng.randi_range(0,1))
 	walking_left = !walking_right
@@ -28,7 +34,7 @@ func _process(delta):
 		self.set_position(Vector2(get_position().x+walk_speed,get_position().y))
 	elif(walking_left and !eating):
 		self.set_position(Vector2(get_position().x-walk_speed,get_position().y))
-		
+	
 
 func _on_body_entered(body):
 	#print("sumo hit:",body)
@@ -40,6 +46,10 @@ func _on_body_entered(body):
 		get_tree().root.get_child(0).update_score(feed_score) #make main a global var
 		eating=true
 		timer.start(eating_time)
+		animation_player.stop()
+		animation_player.play("eating")	
+		eating_ps.set_emitting(true)
+		
 		
 	elif(body.name == "RightWall"):
 		walking_right=false
@@ -53,5 +63,9 @@ func _on_body_entered(body):
 func _on_timer_timeout():
 	print("eating time over")
 	eating=false
+	eating_ps.set_emitting(false)
+	
+	animation_player.stop()	
+	animation_player.play("walking")	
 	rnd_walk_dir()
 	
