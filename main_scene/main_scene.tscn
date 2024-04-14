@@ -136,7 +136,6 @@ position = Vector2(960, 540)
 
 [node name="Sumo" parent="." instance=ExtResource("3_jddoh")]
 position = Vector2(434, 957)
-walk_speed = 10
 
 [node name="RoundTimer" type="Timer" parent="."]
 autostart = true
@@ -144,11 +143,9 @@ autostart = true
 [node name="Sumo2" parent="." instance=ExtResource("3_jddoh")]
 modulate = Color(0.588235, 0.607843, 0.913725, 1)
 position = Vector2(841, 962)
-walk_speed = 10
 
 [node name="Sumo3" parent="." instance=ExtResource("3_jddoh")]
 modulate = Color(1, 0.32549, 0.25098, 1)
 position = Vector2(208, 977)
-walk_speed = 10
 
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]

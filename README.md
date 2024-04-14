@@ -10,8 +10,8 @@ game made for https://ldjam.com/events/ludum-dare/55
 	- [X] add sumo, which runs from left and right
 		- [X] make them eat the food; adjust score
 	- [X] make time run out and show score 
-	- [x] play test and finalize values - estimate: 30min - real:30
-		- 4 sumos was to much..
+	- [x] play test and finalize values - estimate: 30min - real:50?
+		- 4 sumos was to much..and their walking speed 5 makes it easier
 - [ ] create very basic art 
 - [ ] animate it and particle effects
 	- [ ] add sfx and music

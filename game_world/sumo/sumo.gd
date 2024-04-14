@@ -2,7 +2,7 @@ extends Node2D
 
 @export var feed_score = 10
 @export var eating_time = 3 #or sleeping time
-@export var walk_speed = 5
+@export var walk_speed:float #5 og
 
 #enum("right", "left") var walking_state: int
 
@@ -34,7 +34,7 @@ func _on_body_entered(body):
 	#print("sumo hit:",body)
 	
 	if(body.is_in_group("food") and !eating):
-		#TODO: play eat animation here
+	#TODO: play eat animation here
 		body.hide()
 		body.queue_free()
 		get_tree().root.get_child(0).update_score(feed_score) #make main a global var
