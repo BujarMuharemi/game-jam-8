@@ -13,7 +13,7 @@ script = ExtResource("1_6w07c")
 
 [node name="player" parent="." instance=ExtResource("1_dnv8g")]
 modulate = Color(0.701961, 1, 0, 1)
-position = Vector2(832, 78)
+position = Vector2(832, 77.845)
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
 position = Vector2(-493, 525)
@@ -27,7 +27,7 @@ position = Vector2(280, 92)
 shape = SubResource("RectangleShape2D_l8bih")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
-position = Vector2(1929, 465)
+position = Vector2(2038, 467)
 scale = Vector2(1, 1.39)
 
 [node name="Blanko" type="Sprite2D" parent="RightWall"]
@@ -39,7 +39,7 @@ position = Vector2(-282, 92)
 shape = SubResource("RectangleShape2D_l8bih")
 
 [node name="Floor" type="StaticBody2D" parent="."]
-position = Vector2(987, 1445)
+position = Vector2(856, 1659)
 scale = Vector2(2.52, 0.789998)
 
 [node name="Blanko" type="Sprite2D" parent="Floor"]
@@ -142,11 +142,13 @@ walk_speed = 10
 autostart = true
 
 [node name="Sumo2" parent="." instance=ExtResource("3_jddoh")]
-position = Vector2(841, 957)
+modulate = Color(0.588235, 0.607843, 0.913725, 1)
+position = Vector2(841, 962)
 walk_speed = 10
 
 [node name="Sumo3" parent="." instance=ExtResource("3_jddoh")]
-position = Vector2(208, 957)
+modulate = Color(1, 0.32549, 0.25098, 1)
+position = Vector2(208, 977)
 walk_speed = 10
 
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]

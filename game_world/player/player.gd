@@ -5,7 +5,11 @@ const SPEED = 20
 var block_left=false
 var block_right=false
 var food_scene = preload("res://game_world/food/food.tscn")
-var food_drop_time=false
+var food_drop_timer_flag=false
+@export var food_drop_time:float=2
+
+func _ready():
+	$Timer.set_wait_time(food_drop_time)
 
 func _process(delta):
 	# Check for input
@@ -16,12 +20,12 @@ func _process(delta):
 		self.set_position(Vector2(get_position().x-SPEED,get_position().y))
 	
 	## is_action_just_pressed
-	elif Input.is_action_pressed("ui_select") and food_drop_time:	
+	elif Input.is_action_pressed("ui_select") and food_drop_timer_flag:	
 		set_scale(Vector2(1.0,1.0))		
 		var food = food_scene.instantiate()
 		food.position = position
 		get_tree().root.get_child(0).add_child(food)
-		food_drop_time=false
+		food_drop_timer_flag=false
 	
 
 func _on_body_entered(body):
@@ -38,6 +42,6 @@ func _on_body_exited(body):
 
 
 func _on_timer_timeout():
-	food_drop_time=true
+	food_drop_timer_flag=true
 	set_scale(Vector2(1.2,1.2)) # to tell the player he can spawn stuff
 	
