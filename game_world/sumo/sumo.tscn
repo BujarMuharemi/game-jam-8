@@ -1,10 +1,10 @@
 [gd_scene load_steps=4 format=3 uid="uid://c5d70o5dhak6y"]
 
 [ext_resource type="Script" path="res://game_world/sumo/sumo.gd" id="1_70sll"]
-[ext_resource type="Texture2D" uid="uid://bia418x5tjgv" path="res://game_world/player/blanko.png" id="2_0yxt4"]
+[ext_resource type="Texture2D" uid="uid://xmnct2fu8h5a" path="res://game_world/sumo/sumo1.png" id="2_fyeai"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_auaa2"]
-size = Vector2(125, 90)
+size = Vector2(160, 90.25)
 
 [node name="Sumo" type="Area2D"]
 script = ExtResource("1_70sll")
@@ -13,11 +13,11 @@ walk_speed = 5.0
 
 [node name="Blanko" type="Sprite2D" parent="."]
 modulate = Color(0.443137, 1, 0.556863, 1)
-scale = Vector2(0.12, 0.09)
-texture = ExtResource("2_0yxt4")
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("2_fyeai")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 0)
+position = Vector2(2, 1)
 shape = SubResource("RectangleShape2D_auaa2")
 
 [node name="Timer" type="Timer" parent="."]

@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dkf0hvkofym1g"]
 
-[ext_resource type="Texture2D" uid="uid://bia418x5tjgv" path="res://game_world/player/blanko.png" id="1_5gs5s"]
 [ext_resource type="Script" path="res://game_world/food/food.gd" id="1_o7o11"]
+[ext_resource type="Texture2D" uid="uid://bi844kd5frha7" path="res://game_world/food/food.png" id="2_jpi5k"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aukfb"]
 size = Vector2(1020, 1020)
@@ -12,9 +12,8 @@ gravity_scale = 3.0
 script = ExtResource("1_o7o11")
 
 [node name="Blanko" type="Sprite2D" parent="."]
-modulate = Color(1, 0.376471, 0.32549, 1)
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("1_5gs5s")
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_jpi5k")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(2.86102e-05, 0)

@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://75ba58pbuguj"]
+[gd_scene load_steps=7 format=3 uid="uid://75ba58pbuguj"]
 
 [ext_resource type="Script" path="res://main_scene/main_scene.gd" id="1_6w07c"]
 [ext_resource type="PackedScene" uid="uid://ccdblvlvp4kxe" path="res://game_world/player/player.tscn" id="1_dnv8g"]
 [ext_resource type="Texture2D" uid="uid://bia418x5tjgv" path="res://game_world/player/blanko.png" id="2_fa3jh"]
 [ext_resource type="PackedScene" uid="uid://c5d70o5dhak6y" path="res://game_world/sumo/sumo.tscn" id="3_jddoh"]
+[ext_resource type="Texture2D" uid="uid://c5e8b2lffph27" path="res://game_world/background.jpg" id="5_3p672"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8bih"]
 size = Vector2(511, 1193)
@@ -11,12 +12,16 @@ size = Vector2(511, 1193)
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6w07c")
 
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(953.75, 366.5)
+scale = Vector2(1.9945, 2.45034)
+texture = ExtResource("5_3p672")
+
 [node name="player" parent="." instance=ExtResource("1_dnv8g")]
-modulate = Color(0.701961, 1, 0, 1)
 position = Vector2(832, 77.845)
 
 [node name="LeftWall" type="StaticBody2D" parent="."]
-position = Vector2(-493, 525)
+position = Vector2(-527, 525)
 scale = Vector2(1, 1.39)
 
 [node name="Blanko" type="Sprite2D" parent="LeftWall"]
@@ -27,10 +32,11 @@ position = Vector2(280, 92)
 shape = SubResource("RectangleShape2D_l8bih")
 
 [node name="RightWall" type="StaticBody2D" parent="."]
-position = Vector2(2038, 467)
+position = Vector2(2085, 696)
 scale = Vector2(1, 1.39)
 
 [node name="Blanko" type="Sprite2D" parent="RightWall"]
+visible = false
 modulate = Color(0.819608, 0.960784, 0.905882, 1)
 texture = ExtResource("2_fa3jh")
 

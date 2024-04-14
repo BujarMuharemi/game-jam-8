@@ -43,5 +43,5 @@ func _on_body_exited(body):
 
 func _on_timer_timeout():
 	food_drop_timer_flag=true
-	set_scale(Vector2(1.2,1.2)) # to tell the player he can spawn stuff
+	set_scale(Vector2(1.1,1.1)) # to tell the player he can spawn stuff
 	
