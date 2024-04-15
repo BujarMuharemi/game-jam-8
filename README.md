@@ -19,17 +19,16 @@ game made for https://ldjam.com/events/ludum-dare/55
 	- [ ] one food
 	- [ ] 1 sumo/ base with litte derivation
 	- [ ] particle effects
-- [ ] @ animate it and particle effects 1h
-	- [ ] animate almost all interactions
-	- [ ] add some particle effects
-	- [ ] use the animation player to run animations and sfx at once
+- [X] @ animate it and particle effects 1h
+	- [X] animate almost all interactions
+	- [X] add some particle effects
+	- [X] use the animation player to run animations and sfx at once
 - [ ] polish the rest 1h
 	- [ ] create a simple song and add it 
-	- [ ] change font for all text and add margin
-
-- [ ] add "tutorial loader"	 1h
+	- [X] change font for all text and add margin
+	- [ ] add "tutorial loader"	 1h -> meme ?
 - [ ] add start screen with sound adjustments
-- [ ] submit before 00:00
+
 
 ## Bugs/Problems
 - hitting two sumos with one food

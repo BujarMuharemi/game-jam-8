@@ -12,6 +12,7 @@ size = Vector2(511, 1193)
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6w07c")
+round_time = 2
 
 [node name="Background" type="Sprite2D" parent="."]
 position = Vector2(953.75, 366.5)
@@ -153,17 +154,48 @@ position = Vector2(960, 540)
 autostart = true
 
 [node name="Sumo3" parent="." instance=ExtResource("3_jddoh")]
-modulate = Color(1, 0.32549, 0.25098, 1)
 position = Vector2(211, 846)
 
 [node name="Sumo" parent="." instance=ExtResource("3_jddoh")]
 position = Vector2(434, 949)
 
 [node name="Sumo2" parent="." instance=ExtResource("3_jddoh")]
-modulate = Color(0.588235, 0.607843, 0.913725, 1)
 position = Vector2(840, 987)
 
 [node name="Node2D" parent="." instance=ExtResource("6_rs71x")]
 position = Vector2(627, 863)
+
+[node name="FinalScore" type="Label" parent="."]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 899.0
+offset_top = 483.0
+offset_right = 1034.0
+offset_bottom = 544.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 42
+text = "1234"
+
+[node name="ColorRect" type="ColorRect" parent="FinalScore"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -971.0
+offset_top = -492.0
+offset_right = -971.0
+offset_bottom = -492.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(15.545, 18.065)
+color = Color(1, 1, 1, 0.156863)
 
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]

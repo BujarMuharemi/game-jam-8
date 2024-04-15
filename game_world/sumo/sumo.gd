@@ -44,10 +44,12 @@ func _on_body_entered(body):
 		body.hide()
 		body.queue_free()
 		get_tree().root.get_child(0).update_score(feed_score) #make main a global var
+		
 		eating=true
 		timer.start(eating_time)
 		animation_player.stop()
 		animation_player.play("eating")	
+		$EatingAudioStreamPlayer2D.play()
 		eating_ps.set_emitting(true)
 		
 		
@@ -64,8 +66,10 @@ func _on_timer_timeout():
 	print("eating time over")
 	eating=false
 	eating_ps.set_emitting(false)
+	$EatingAudioStreamPlayer2D.stop()
 	
 	animation_player.stop()	
 	animation_player.play("walking")	
 	rnd_walk_dir()
+	
 	
