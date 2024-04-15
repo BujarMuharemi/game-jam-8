@@ -1,0 +1,16 @@
+[gd_resource type="AudioBusLayout" load_steps=3 format=3 uid="uid://dfl447ea44kih"]
+
+[sub_resource type="AudioEffectLowPassFilter" id="AudioEffectLowPassFilter_r6in2"]
+resource_name = "LowPassFilter"
+cutoff_hz = 1000.0
+resonance = 1.0
+
+[sub_resource type="AudioEffectFilter" id="AudioEffectFilter_dminh"]
+resource_name = "Filter"
+gain = 4.0
+
+[resource]
+bus/0/effect/0/effect = SubResource("AudioEffectLowPassFilter_r6in2")
+bus/0/effect/0/enabled = false
+bus/0/effect/1/effect = SubResource("AudioEffectFilter_dminh")
+bus/0/effect/1/enabled = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://75ba58pbuguj"]
+[gd_scene load_steps=9 format=3 uid="uid://75ba58pbuguj"]
 
 [ext_resource type="Script" path="res://main_scene/main_scene.gd" id="1_6w07c"]
 [ext_resource type="PackedScene" uid="uid://ccdblvlvp4kxe" path="res://game_world/player/player.tscn" id="1_dnv8g"]
@@ -6,18 +6,20 @@
 [ext_resource type="PackedScene" uid="uid://c5d70o5dhak6y" path="res://game_world/sumo/sumo.tscn" id="3_jddoh"]
 [ext_resource type="Texture2D" uid="uid://c5e8b2lffph27" path="res://game_world/background.jpg" id="5_3p672"]
 [ext_resource type="PackedScene" uid="uid://debwcifwmjj5k" path="res://game_world/sumo/eating_ps.tscn" id="6_rs71x"]
+[ext_resource type="AudioStream" uid="uid://dsutxjbje8oaw" path="res://main_scene/bck-music.mp3" id="7_tmmnm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_l8bih"]
 size = Vector2(511, 1193)
 
 [node name="MainScene" type="Node2D"]
 script = ExtResource("1_6w07c")
-round_time = 2
 
 [node name="Background" type="Sprite2D" parent="."]
-position = Vector2(953.75, 366.5)
-scale = Vector2(1.9945, 2.45034)
+modulate = Color(0.941176, 0.941176, 0.941176, 1)
+position = Vector2(950, 378)
+scale = Vector2(2.2345, 2.45034)
 texture = ExtResource("5_3p672")
+flip_h = true
 
 [node name="player" parent="." instance=ExtResource("1_dnv8g")]
 position = Vector2(934, 129)
@@ -145,7 +147,8 @@ theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
 theme_override_constants/outline_size = 4
 theme_override_font_sizes/font_size = 42
-text = "1231 Points"
+text = "0
+"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(960, 540)
@@ -197,5 +200,13 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(15.545, 18.065)
 color = Color(1, 1, 1, 0.156863)
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("7_tmmnm")
+volume_db = -10.0
+pitch_scale = 0.9
+autoplay = true
+attenuation = 2.21914
+panning_strength = 0.0
 
 [connection signal="timeout" from="RoundTimer" to="." method="_on_round_timer_timeout"]
